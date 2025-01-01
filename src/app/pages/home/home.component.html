@@ -1,9 +1,32 @@
-<section>
-  <h1>Wallpaper Finder v2 is built with Angular and ASP.NET</h1>
-  <a routerLink="/browse"><h2>Effortlessly find the perfect wallpaper.</h2></a>
-  <p>
-    <a routerLink="/browse">Browse</a> a vast collection of high-quality images,
-    filtered to suit your style and preferences. Transform your device with ease
-    and elevate your screen with stunning visuals today.
-  </p>
+<section class="flex flex-col items-center px-5 sm:px-20">
+  <h1 class="hidden text-slate-500 text-center font-thin mt-10">
+    Built with Angular and ASP.NET
+  </h1>
+  <h2 class="text-slate-300 text-center font-bold text-4xl mt-10">
+    Find the perfect wallpaper
+  </h2>
+  <div class="flex justify-centerw-full">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-24 max-w-xl">
+      <p class="text-slate-200 font-normal col-span-2">
+        <a
+          routerLink="/search"
+          class="text-sky-300 hover:text-sky-400 hover:underline"
+          >Browse</a
+        >
+        a vast collection of high-quality images.
+        <span class="mt-4 block text-sm">
+          Transform your device with ease and elevate your screen with stunning
+          visuals today!</span
+        >
+      </p>
+      <div class="flex items-center">
+        <a
+          routerLink="/search"
+          class="bg-sky-300 text-center font-bold text-lg rounded flex justify-center items-center w-full h-full text-sky-950 hover:bg-sky-400 transition"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
