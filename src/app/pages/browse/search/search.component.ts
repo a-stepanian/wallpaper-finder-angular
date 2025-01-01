@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { PhotoService } from '../../../services/photo.service';
+import { IPaginatedDto } from '../../../models/paginated-dto.model';
 
 @Component({
   selector: 'app-search',
@@ -13,15 +14,14 @@ export class SearchComponent {
   searchForm = new FormGroup({
     searchTerm: new FormControl(''),
   });
-  results: any[] = [];
+  @Output() newSearchEvent = new EventEmitter<IPaginatedDto>();
 
   async handleSubmit() {
     const response = await this.photoService.getPhotos(
       this.searchForm.value.searchTerm ?? ''
     );
     if (response) {
-      this.results = response.results;
-      console.log(response.results);
+      this.newSearchEvent.emit(response);
     }
   }
 }
